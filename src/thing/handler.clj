@@ -4,9 +4,11 @@
             [hiccup.core :refer [html]]
             [hiccup.def :refer [defhtml]]
             [garden.core :refer [css]]
+            [korma.db :refer [defdb mysql]]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]))
 
-(defhtml page [title content]
+(defhtml page
+  [title content]
   [:html
    [:head
     [:link {:rel "stylesheet" :href "https://fonts.googleapis.com/css?family=Open+Sans"}]
