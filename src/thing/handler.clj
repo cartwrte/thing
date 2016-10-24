@@ -5,7 +5,14 @@
             [hiccup.def :refer [defhtml]]
             [garden.core :refer [css]]
             [korma.db :refer [defdb mysql]]
-            [ring.middleware.defaults :refer [wrap-defaults site-defaults]]))
+            [korma.core :as k]
+            [ring.middleware.defaults :refer [wrap-defaults site-defaults]])
+  (:gen-class))
+
+(defdb korma-db
+  (mysql {:host "localhost" :port 3306 :db "thing"
+          :user (System/getenv "DBUSER")
+          :password (System/getenv "DBPASSWD")}))
 
 (defhtml page
   [title content]
